@@ -5,6 +5,9 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended : true}));
+
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -12,9 +15,6 @@ const pool = new Pool({
     rejectUnauthorized: false
   }
 });
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended : true}));
 
 app.post('/api/thoughts', (req, res) => {
   const { thought } = req.body;

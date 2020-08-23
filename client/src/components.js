@@ -23,7 +23,7 @@ export function Form(props) {
       },
       body: JSON.stringify({ thought })
     });
-    response.status !== 200 ? setError('submission') : setMode('back to home');
+    response.status !== 201 ? setError('submission') : setMode('back to home');
   }
 
   function returnHome() {
