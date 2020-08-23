@@ -1,0 +1,27 @@
+{
+  "name": "thoughtbox",
+  "version": "1.0.0",
+  "description": "A box that takes user input 'thoughts' and enters them into a database. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm server\" \"npm client\""
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eileenlimur/thoughtbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eileenlimur/thoughtbox/issues"
+  },
+  "homepage": "https://github.com/eileenlimur/thoughtbox#readme"
+}
