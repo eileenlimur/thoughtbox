@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export function Nav(props) {
   return (
-    <div className="header">
-      <h1 className="header_text">Thought</h1>&nbsp;&nbsp;&nbsp;
-      <h1 className="header_text">Box</h1>
+    <div className='header'>
+      <h1 className='header_text'>Thought</h1>&nbsp;&nbsp;&nbsp;
+      <h1 className='header_text'>Box</h1>
     </div>
   );
 }
 
 export function Form(props) {
-  const [thought, setThought] = useState("");
-  const [mode, setMode] = useState("input");
+  const [thought, setThought] = useState('');
+  const [mode, setMode] = useState('input');
+  const [error, setError] = useState('none');
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -20,31 +21,35 @@ export function Form(props) {
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ thought })
     });
-    const body = await response.text();
-    console.log(body);
-    setMode("back to home");
+    response.status !== 200 ? setError('submission') : setMode('back to home');
   }
 
-  function handleReject() {
+  function returnHome() {
     setThought('');
-    setMode("input");
+    setMode('input');
   }
 
   return (
     <div>
-      <form className="form">
-        {mode !== "back to home" && (
+      <form className='form'>
+        {error === 'submission' && (
+          <h2><em>
+          <span>There was an error submitting your thought.</span></em>
+        </h2>
+        )}
+        {mode !== 'back to home' && (
           <>
             <h2>
               Give me your <span>thoughts</span>.
             </h2>
             <input
-              type="text"
+              type='text'
               value={thought}
-              className="text-input"
+              className='text-input'
               onChange={(e) => {
-                if (mode === "input") {
+                if (mode === 'input') {
                   setThought(e.target.value);
                 }
               }}
@@ -52,17 +57,17 @@ export function Form(props) {
             />
           </>
         )}
-        {mode === "input" && (
+        {mode === 'input' && (
           <>
             <h3>{1200 - thought.length} characters remaining</h3>
-            <button id="submit-button" onClick={handleSubmit}>
+            <button id='submit-button' onClick={handleSubmit}>
               Submit
             </button>
           </>
         )}
-        {mode === "back to home" && (
+        {mode === 'back to home' && (
           <>
-            <button className="view-thoughts-button" onClick={handleReject}>
+            <button className='view-thoughts-button' onClick={returnHome}>
               Go back home
             </button>
           </>
