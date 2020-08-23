@@ -13,8 +13,16 @@ export function Form(props) {
   const [thought, setThought] = useState("");
   const [mode, setMode] = useState("input");
 
-  function handleSubmit() {
-    
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await fetch('/api/thoughts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const body = await response.text();
+    console.log(body);
     setMode("back to home");
   }
 
