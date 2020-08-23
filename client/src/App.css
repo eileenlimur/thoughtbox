@@ -1,38 +1,102 @@
-.App {
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(21, 21, 21);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  height: 2rem;
+  font-size: 1.5rem;
+  width: 8rem;
+  margin: auto;
+  margin-top: 30px;
+}
+
+label {
+  margin: auto;
+  color: yellow;
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  color: rgb(255, 225, 0);
+}
+
+.view-thoughts-button {
+  background-color: purple;
+  color: yellow;
+  height: 4rem;
+}
+
+.header {
+  width: 100%;
+  color: rgb(16, 4, 255);
+  height: 5rem;
+  font-size: 0.8em;
+  background-color: rgb(216, 216, 76);
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.body {
+  margin: 4rem;
+  margin-top: 2rem;
+}
+
+.header_text {
+  transform: rotate(7deg);
+}
+
+.form {
+  color: rgb(0, 143, 186);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form h2, h3 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form input {
+  font-size: 2rem;
+  height: 4rem;
+  min-width: 80px;
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.text-input {
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.instructions {
+  color: rgb(159, 241, 255);
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+#submit-button {
+  background-color: purple;
+  color: pink;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#permission-to-share, #permission-to-sing {
+  height: 2rem;
 }
