@@ -15,6 +15,7 @@ Find the app deployed [here](https://thotbox.herokuapp.com/) on Heroku. Your tho
 - JavaScript
 - Express
 - Node.js
+- PostgreSQL (via Heroku)
 
 ## Instructions
 
