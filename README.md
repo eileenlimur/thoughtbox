@@ -6,7 +6,7 @@ This is a web app designed for those who want to collect people's anonymous thou
 
 The app is mobile-ready. Specify your database as an enivironment variable to make the app your own.
 
-Find the app deployed [here](https://thotbox.herokuapp.com/) on Heroku.
+Find the app deployed [here](https://thotbox.herokuapp.com/) on Heroku. Your thoughts will be submitted to the creator's database.
 
 ![thoughtbox](https://github.com/eileenlimur/thoughtbox/blob/master/client/public/ThotBox.png)
 
