@@ -1,11 +1,14 @@
 # Thoughtbox
 
-Thoughtbox is an app that presents an input box to accept user thoughts of up to 1200 characters long and submits them to a database. It is a web app designed for those who would like to collect people's anonymous thoughts. Alternatively, it can be used for entities who would like anonymous feedback.
+Thoughtbox is an app that accepts user input of up to 1200 characters long and submits them to a database. Each input is called a thought (thoughts are valuable commodities). 
 
-The app is mobile-ready. Specify your database in the process.env to make the app your own.
+This is a web app designed for those who want to collect people's anonymous thoughts on anything and everything. Alternatively, it can be used for entities who would like anonymous feedback.
+
+The app is mobile-ready. Specify your database as an enivironment variable to make the app your own.
 
 Find the app deployed [here](https://thotbox.herokuapp.com/) on Heroku.
 
+![thoughtbox](https://github.com/eileenlimur/thoughtbox/blob/master/client/public/ThotBox.png)
 
 ## Stack
 - React.js (via create-react-app)
