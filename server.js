@@ -33,7 +33,7 @@ app.get('/api/grieveyard', (req, res) => {
     } else {
       res.append('Access-Control-Allow-Origin','*')
       res.append('Access-Control-Allow-Methods','GET, POST')
-      res.append('Access-Control-Allow-Headers', 'content-type');
+      res.append('Access-Control-Allow-Headers', 'Content-Type');
       res.status(200).json(pool_res);
     }
   })
