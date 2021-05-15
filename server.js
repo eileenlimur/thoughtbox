@@ -27,15 +27,12 @@ app.post('/api/thoughts', (req, res) => {
 });
 
 app.get('/api/grieveyard', (req, res) => {
-  pool.query('SELECT title, content FROM grievestories ORDER BY id desc;', (pool_res) => {
-    if (error) {
+  pool.query('SELECT title, content FROM grievestories ORDER BY id desc;', [], (err, pool_res) => {
+    if (err) {
       res.status(300).send(`Something went wrong with your database request`);
     } else {
-      res.append(
-        'Access-Control-Allow-Origin','*'
-        // 'Access-Control-Allow-Origin': 'https://www.eileenladybugli.com/grieveyard'
-        )
-        res.append('Access-Control-Allow-Methods','GET, POST')
+      res.append('Access-Control-Allow-Origin','*')
+      res.append('Access-Control-Allow-Methods','GET, POST')
       res.append('Access-Control-Allow-Headers', 'content-type');
       res.status(200).json(pool_res);
     }
