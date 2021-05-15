@@ -32,7 +32,8 @@ app.get('/api/grieveyard', (req, res) => {
       res.status(300).send(`Something went wrong with your database request`);
     } else {
       res.set({
-        'Access-Control-Allow-Origin': 'https://www.eileenladybugli.com/grieveyard'
+        'Access-Control-Allow-Origin': '*'
+        // 'Access-Control-Allow-Origin': 'https://www.eileenladybugli.com/grieveyard'
       })
       res.status(200).json(pool_res);
     }
