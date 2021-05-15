@@ -27,7 +27,7 @@ app.post('/api/thoughts', (req, res) => {
 });
 
 app.get('/api/grieveyard', (req, res) => {
-  pool.query('SELECT title, content FROM grievestories ORDER BY id desc;', [], (err, pool_res) => {
+  pool.query('SELECT id, title, content FROM grievestories ORDER BY id desc;', [], (err, pool_res) => {
     if (err) {
       res.status(300).send(`Something went wrong with your database request`);
     } else {
