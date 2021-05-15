@@ -24,7 +24,20 @@ app.post('/api/thoughts', (req, res) => {
     }
     res.status(201).send(`Thought added`);
   })
-})
+});
+
+app.get('/api/grieveyard', (req, res) => {
+  pool.query('SELECT title, content FROM grievestories ORDER BY id desc;', (pool_res) => {
+    if (error) {
+      res.status(300).send(`Something went wrong with your database request`);
+    } else {
+      res.set({
+        'Access-Control-Allow-Origin': 'https://www.eileenladybugli.com/grieveyard'
+      })
+      res.status(200).json(pool_res);
+    }
+  })
+});
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
