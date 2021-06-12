@@ -44,8 +44,12 @@ app.post('/api/grieveyard', (req, res) => {
   pool.query('INSERT INTO grievestories (title, content, author) VALUES ($1, $2, $3);', [grievestory.title, grievestory.content, grievestory.author], (error, results) => {
     if (error) {
       throw error
+    } else {
+      res.append('Access-Control-Allow-Origin','*')
+      res.append('Access-Control-Allow-Methods','GET, POST')
+      res.append('Access-Control-Allow-Headers', 'Content-Type');
+      res.status(201).send(`Grievestory added`);
     }
-    res.status(201).send(`Grievestory added`);
   })
 });
 
