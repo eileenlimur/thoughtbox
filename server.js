@@ -37,9 +37,9 @@ app.get('/api/grieveyard', (req, res) => {
     if (err) {
       res.status(300).send(`Something went wrong with your database request`);
     } else {
-      res.append('Access-Control-Allow-Origin','*')
-      res.append('Access-Control-Allow-Methods','GET, POST')
-      res.append('Access-Control-Allow-Headers', 'Content-Type');
+      // res.append('Access-Control-Allow-Origin','*')
+      // res.append('Access-Control-Allow-Methods','GET, POST')
+      // res.append('Access-Control-Allow-Headers', 'Content-Type');
       res.status(200).json(pool_res.rows);
     }
   })
@@ -52,9 +52,9 @@ app.post('/api/grieveyard', (req, res) => {
       if (error) {
         throw error
       } else {
-        res.append('Access-Control-Allow-Origin','*')
-        res.append('Access-Control-Allow-Methods','GET, POST')
-        res.append('Access-Control-Allow-Headers', 'Content-Type');
+        // res.append('Access-Control-Allow-Origin','*')
+        // res.append('Access-Control-Allow-Methods','GET, POST')
+        // res.append('Access-Control-Allow-Headers', 'Content-Type');
         res.status(201).send(`Grievestory added`);
       }
     })
