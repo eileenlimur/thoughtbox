@@ -40,19 +40,19 @@ app.get('/api/grieveyard', (req, res) => {
 });
 
 app.post('/api/grieveyard', (req, res) => {
-  const grievestory = req.body;
-  console.log(req.body);
-  console.log(res);
-  pool.query('INSERT INTO grievestories (title, content, author) VALUES ($1, $2, $3);', [grievestory.title, grievestory.content, grievestory.author], (error, results) => {
-    if (error) {
-      throw error
-    } else {
-      res.append('Access-Control-Allow-Origin','*')
-      res.append('Access-Control-Allow-Methods','GET, POST')
-      res.append('Access-Control-Allow-Headers', 'Content-Type');
-      res.status(201).send(`Grievestory added`);
-    }
-  })
+  const { title, content, author } = req.body;
+  if (title) {
+    pool.query('INSERT INTO grievestories (title, content, author) VALUES ($1, $2, $3);', [title, content, author], (error, results) => {
+      if (error) {
+        throw error
+      } else {
+        res.append('Access-Control-Allow-Origin','*')
+        res.append('Access-Control-Allow-Methods','GET, POST')
+        res.append('Access-Control-Allow-Headers', 'Content-Type');
+        res.status(201).send(`Grievestory added`);
+      }
+    })
+  }
 });
 
 if (process.env.NODE_ENV === 'production') {
