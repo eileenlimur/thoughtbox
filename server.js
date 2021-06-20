@@ -40,7 +40,7 @@ app.get('/api/grieveyard', (req, res) => {
 });
 
 app.post('/api/grieveyard', (req, res) => {
-  const { grievestory } = req.body;
+  const grievestory = req.body;
   console.log(req.body);
   console.log(res);
   pool.query('INSERT INTO grievestories (title, content, author) VALUES ($1, $2, $3);', [grievestory.title, grievestory.content, grievestory.author], (error, results) => {
