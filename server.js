@@ -1,12 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
+const isProduction = process.env.NODE_ENV === 'development';
+
+const originLadybug = {origin: isProduction ? 'https://www.eileenladybugli.com/' : '*'};
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true}));
+app.use(cors(originLadybug));
 
 const { Pool } = require('pg');
 const pool = new Pool({
